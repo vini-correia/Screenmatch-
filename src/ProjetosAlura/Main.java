@@ -1,4 +1,4 @@
-package CaucularMedia;
+package ProjetosAlura;
 
 import java.util.Scanner;
 

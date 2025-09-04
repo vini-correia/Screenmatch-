@@ -1,4 +1,4 @@
-package CaucularMedia;
+package ProjetosAlura;
 
 public class Aluno {
 

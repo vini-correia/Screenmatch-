@@ -3,11 +3,13 @@ package br.com.alura.screenmatch.models;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.calculos.calculadoraDeTempo;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
+        Filme meuFilme = new Filme("Meu malvado favorito", 2000);
 
-        meuFilme.setNome("Meu malvado favorito");
         meuFilme.setAnoDeLancamento(2002);
         meuFilme.setDuracaoEmMinutos(190);
 
@@ -25,7 +27,7 @@ public class Main {
 //        System.out.println(meuFilme.totalDeAvaliacoes);
         System.out.println(meuFilme.pegaMedia());
 
-        Serie minhaSerie = new Serie();
+        Serie minhaSerie = new Serie(2005, "Lost");
 
         minhaSerie.setNome("Lost");
         minhaSerie.setAnoDeLancamento(2000);
@@ -35,9 +37,7 @@ public class Main {
         minhaSerie.setMinutosPorEpisodio(50);
         System.out.println("duração da serie: " + minhaSerie.getDuracaoEmMinutos() + " minutos");
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Poderoso chefão", 1994);
         outroFilme.setDuracaoEmMinutos(200);
 
         calculadoraDeTempo calculadora = new calculadoraDeTempo();
@@ -54,6 +54,20 @@ public class Main {
         e.setSerie(minhaSerie);
         e.setTotalDeVisualizacoes(300);
         filtro.filtrar(e);
+
+        var filmeDoPaulo = new Filme("dogvile", 2003);
+        filmeDoPaulo.setDuracaoEmMinutos(200);
+        filmeDoPaulo.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoPaulo);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+
+        System.out.println("tamanho da lista: " + listaDeFilmes.size());
+        System.out.println(listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+
 
 
     }
